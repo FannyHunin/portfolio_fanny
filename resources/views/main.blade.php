@@ -42,7 +42,7 @@
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <img src={{asset("img/fanny.gif")}} alt="" width="50%">
-                    <h2 class="mx-auto mt-2 mb-5">Full stack web developper</h2>
+                    <h2 class="text-white mx-auto mt-2 mb-5">Full stack web developper</h2>
                     <a class="btn js-scroll-trigger" style="background-color: #22ff88;" href="#about">Discover me</a>
                 </div>
             </div>
@@ -180,6 +180,6 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{{asset("js/app.js")}}"></script>
+        <script src="{{asset("js/scripts.js")}}"></script>
     </body>
 </html>

@@ -6,3 +6,20 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import './style.scss';
+
+// Global CSS
+@import "./global.scss";
+
+// Components
+@import "./components/navbar.scss";
+@import "./components/buttons.scss";
+
+// Sections
+@import "./sections/masthead.scss";
+@import "./sections/about.scss";
+@import "./sections/projects.scss";
+@import "./sections/signup.scss";
+@import "./sections/contact.scss";
+@import "./sections/footer.scss";
+@import "./sections/skills";
