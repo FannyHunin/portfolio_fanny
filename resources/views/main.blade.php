@@ -53,9 +53,9 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="mb-4" style="color: #22ff88;font-weight: 700">About me</h2>
-                        <p class="text-white">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ipsa optio cupiditate molestiae dignissimos odit iure quidem aperiam eos rerum tenetur esse nihil amet? Doloremque modi doloribus ipsum consequatur earum?
-                        </p>
+                        @foreach ($aboutData as $item)
+                            <p class="text-white">{{$item->description}}</p>
+                        @endforeach
                     </div>
                 </div>
                 <i class="fas fa-laptop-code mb-5" style="color: #22ff88; font-size : 300px" ></i>
@@ -64,29 +64,43 @@
         <!-- Projects-->
         <section class="projects-section bg-light" id="projects">
             <div class="container">
+                <h2 class="mb-4 text-center" style="color: #000000;font-weight: 700">My work</h2>
                 <!-- Featured Project Row-->
-                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                    <div class="col-xl-8 col-lg-7">
-                        {{-- carousel --}}
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                  <img src="{{asset("img/demo-image-01.jpg")}}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{asset("img/demo-image-01.jpg")}}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{asset("img/demo-image-01.jpg")}}" class="d-block w-100" alt="...">
-                              </div>
+                <div class="row align-items-center no-gutters mb-2 mb-lg-5 ">
+                    @foreach ($projectData as $item)
+                        <div class="col-xl-8 col-lg-7 mb-2">
+                            {{-- carousel --}}
+                            <div id="{{$item->id}}" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                      <img src="{{asset('images/'.$item->src1)}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{asset('images/'.$item->src2)}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{asset('images/'.$item->src3)}}" class="d-block w-100" alt="...">
+                                  </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4 style="font-weight: 700">Projects</h4>
-                            <p class="text-black-50 mb-0">Click on the carousel's images to be redirected to my GitHub repositories.</p>
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="featured-text text-center text-lg-left">
+                                <h4 style="font-weight: 700">{{$item->name}}</h4>
+                                <p class="text-black-50 mb-0">{{$item->description}}</p>
+                                <a class="btn mt-3" target="_blank" href="{{$item->link}}" style="background-color: #22ff88;">repository</a>
+                                <div style="display: flex">
+                                    <div class="alert alert-success mr-1 mt-2 p-2" style="color : black; width : max-content; font-size : 12px; text-transform : uppercase;" role="alert">
+                                        {{$item->tags->name}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    @endforeach
+                </div>
+                <div class="row d-flex justify-content-center mb-5 mx-0">
+                    <div>
+                        {{$projectData->links()}}
                     </div>
                 </div>
                 <!-- Project One Row-->
@@ -143,8 +157,9 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2" style="color: #22ff88;"></i>
                         <h2 class="mb-5" style="color: #22ff88; font-weight: 700;">Subscribe to receive updates on my projects !</h2>
-                        <form class="form-inline d-flex">
-                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
+                        <form class="form-inline d-flex" method="post" action="/mail_sending">
+                            @csrf
+                            <input name="sender_mail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
                             <button class="btn mx-auto" style="background-color: #22ff88;" type="submit">Subscribe</button>
                         </form>
                     </div>
@@ -180,6 +195,6 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{{asset("js/scripts.js")}}"></script>
+        <script src="{{asset("js/app.js")}}"></script>
     </body>
 </html>

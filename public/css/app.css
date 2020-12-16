@@ -11075,7 +11075,11 @@ a.text-black:focus {
   }
 }
 
-body {
+html {
+  scroll-behavior: smooth;
+}
+
+html body {
   letter-spacing: 0.0625em;
 }
 
