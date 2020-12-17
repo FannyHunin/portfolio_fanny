@@ -1,3 +1,4 @@
+@auth
 @extends('adminlte::page')
 
 @section('content')
@@ -32,3 +33,4 @@
     <button class="btn btn-info" type="submit" style="width: max-content">Update</button>
 </form>
 @endsection
+@endauth

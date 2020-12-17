@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller 
@@ -14,7 +15,8 @@ class ServiceController extends Controller
    */
   public function index()
   {
-    
+    $serviceData = Service::all();
+    return view('pages.services', compact('serviceData'));
   }
 
   /**
@@ -34,7 +36,12 @@ class ServiceController extends Controller
    */
   public function store(Request $request)
   {
-    
+    $newEntry = new Service;
+    $newEntry->name = $request->name;
+    $newEntry->description = $request->description;
+    $newEntry->price = $request->price;
+    $newEntry->save();
+    return redirect()->back();
   }
 
   /**
@@ -45,7 +52,7 @@ class ServiceController extends Controller
    */
   public function show($id)
   {
-    
+  
   }
 
   /**
@@ -56,7 +63,8 @@ class ServiceController extends Controller
    */
   public function edit($id)
   {
-    
+    $newEntry = Service::find($id);
+    return view('pages.edit_service', compact('newEntry'));
   }
 
   /**
@@ -65,9 +73,14 @@ class ServiceController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-    
+    $newEntry = Service::find($id);
+    $newEntry->name = $request->name;
+    $newEntry->description = $request->description;
+    $newEntry->price = $request->price;
+    $newEntry->save();
+    return redirect('/services');
   }
 
   /**
@@ -78,7 +91,9 @@ class ServiceController extends Controller
    */
   public function destroy($id)
   {
-    
+    $newEntry = Service::find($id);
+    $newEntry->delete();
+    return redirect()->back();
   }
   
 }

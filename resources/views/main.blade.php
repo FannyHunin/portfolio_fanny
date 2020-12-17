@@ -133,15 +133,16 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
                                     <h4 class="text-white" style="font-weight: 700">Services</h4>
-                                    <ul class="text-white" style="font-weight: 700"> Website (4 sections) 1300€ : 
-                                        <li class="mr-3" style="direction: rtl; font-weight : 400">About</li>
-                                        <li class="mr-3" style="direction: rtl; font-weight : 400">Contact</li>
-                                        <li class="mr-3" style="direction: rtl; font-weight : 400">Projects</li>
-                                    </ul>
-                                    <ul class="text-white" style="font-weight: 700"> Bonus functions : 
-                                        <li class="mr-3" style="direction: rtl; font-weight : 400">Carousel (200€)</li>
-                                        <li class="mr-3" style="direction: rtl; font-weight : 400">Skills (250€)</li>
-                                    </ul>
+                                    
+                                        @foreach ($serviceData as $item)
+                                          <ul class="text-white" style="font-weight: 700"> {{$item->name}} : 
+                                            <li class="mr-3" style="direction: rtl; font-weight : 400">{{$item->description}}</li>
+                                            <li class="mr-3" style="direction: rtl; font-weight : 400">{{$item->price}}€</li>
+                                          </ul>  
+                                        @endforeach
+                                    <div style="width: 100%;">
+                                        {{$serviceData->links()}}
+                                    </div>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
                                 </div>
                             </div>

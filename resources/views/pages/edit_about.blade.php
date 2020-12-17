@@ -1,3 +1,4 @@
+@auth
 @extends('adminlte::page')
 
 @section('content')
@@ -12,3 +13,4 @@
     </form>
 </div>
 @endsection
+@endauth

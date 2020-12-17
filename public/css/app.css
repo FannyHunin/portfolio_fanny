@@ -5315,9 +5315,11 @@ input[type=button].btn-block {
 
 .pagination {
   display: flex;
+  justify-content: flex-end;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
+  margin: 0;
 }
 
 .page-link {

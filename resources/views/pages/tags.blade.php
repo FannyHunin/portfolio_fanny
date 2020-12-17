@@ -1,3 +1,4 @@
+@auth
 @extends('adminlte::page')
 
 @section('content')
@@ -28,3 +29,4 @@
         </div>
     </div>
 @endsection
+@endauth
