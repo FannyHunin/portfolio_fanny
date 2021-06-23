@@ -1,0 +1,25 @@
+.projects-section {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 10rem 0;
+    .featured-text {
+        font-weight: 700;
+        padding: 2rem;
+        @include media-breakpoint-up(lg) {
+            padding: 0 0 0 2rem;
+            border-left: 0.5rem solid #22ff88;
+        }
+    }
+    .project-text {
+        font-weight: 400;
+        padding: 3rem;
+        font-size: 90%;
+        @include media-breakpoint-up(lg) {
+            padding: 5rem;
+            hr {
+                border-color:  #22ff88;
+                border-width: 0.25rem;
+                width: 30%;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.skills{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .skills-gauge{
+        background-color: #22ff88;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        .gauge-text{
+            font-weight: 700;
+            font-size: 16px;
+            writing-mode: vertical-rl;
+            color: black;
+        }
+    }
+}

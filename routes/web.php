@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MainController::class, 'index']);
+Route::post('/search_project', [MainController::class, 'search']);
 
 Auth::routes();
 
@@ -50,7 +51,10 @@ Route::post('/add_service', [ServiceController::class, 'store']);
 Route::get('/edit_service/{id}', [ServiceController::class, 'edit']);
 Route::post('/update_service/{id}', [ServiceController::class, 'update']);
 
-Route::post('/mail_sending', [MailingController::class, 'store']);
-Route::post('/send_alert', [MailingController::class, 'alert']);
+// Route::post('/mail_sending', [MailingController::class, 'store']);
+// Route::post('/send_alert', [MailingController::class, 'alert']);
+// Route::post('/message_sending', [MailingController::class, 'message']);
+
+Route::get('/send_email', [MailingController::class, 'sendMail']);
 
 Route::get('/user', [UserController::class, 'index']);
